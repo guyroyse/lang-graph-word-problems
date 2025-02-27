@@ -1,0 +1,17 @@
+{
+  "name": "lang-graph-test",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite-node src/main.ts",
+    "build": "tsc && npm pack"
+  },
+  "author": "Guy Royse <guy@guyroyse.com> (http://guyroyse.com/)",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "prettier": "^3.5.2",
+    "typescript": "^5.7.3",
+    "vite-node": "^3.0.7"
+  }
+}
