@@ -13,5 +13,12 @@
     "prettier": "^3.5.2",
     "typescript": "^5.7.3",
     "vite-node": "^3.0.7"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.40",
+    "@langchain/langgraph": "^0.2.49",
+    "@langchain/openai": "^0.4.4",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.2"
   }
 }
