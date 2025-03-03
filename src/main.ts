@@ -8,12 +8,12 @@ import { model } from './model.js'
 // define the system prompt
 const systemPrompt = new SystemMessage(`
   You are a tool calling AI assistant that solves mathematical word problems.
-  You will be given simple word problems that do addition and subtractions,
+  You will be given simple word problems that do addition and subtraction,
   You will answer them using the tools available to you. Always use the tool
   to solve the problem. Never solve the problem yourself.`)
 
 // invoke the model using the system prompt
-async function invokeMode(state: typeof MessagesAnnotation.State) {
+async function invokeModel(state: typeof MessagesAnnotation.State) {
   const messages = [systemPrompt, ...state.messages]
   const response = await model.invoke(messages)
   return { messages: [response] }
@@ -31,7 +31,7 @@ function routeToToolsOrEnd(state: typeof MessagesAnnotation.State) {
 
 // create the graph and compile it
 const graph = new StateGraph(MessagesAnnotation)
-  .addNode('agent', invokeMode)
+  .addNode('agent', invokeModel)
   .addNode('tools', toolsNode)
   .addEdge(START, 'agent')
   .addConditionalEdges('agent', routeToToolsOrEnd, ['tools', END])
